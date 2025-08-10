@@ -23,7 +23,7 @@ public class AppointmentEventListener {
         String subject = "Appointment Confirmation - " + event.appointmentId();
         String body = String.format(
                 "Hello %s,\n\nYour appointment with Doctor %s is confirmed for %s.\nReason: %s\n\nRegards,\nClinic Team",
-                event.userName(),
+                event.usersFullName(),
                 event.doctorId(),
                 event.appointmentTime(),
                 event.reason()
