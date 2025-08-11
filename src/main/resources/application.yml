@@ -8,7 +8,7 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
-        spring.json.value.default.type: com.notification_service.dtos.AppointmentCreatedEvent
+        spring.json.value.default.type: com.appointment.notification_service.events.AppointmentCreatedEvent
 
   mail:
     host: ${MAIL_HOST}
@@ -22,3 +22,7 @@ spring:
           starttls:
             enable: true
     from: ${MAIL_FROM}
+
+
+server:
+  port: ${PORT}

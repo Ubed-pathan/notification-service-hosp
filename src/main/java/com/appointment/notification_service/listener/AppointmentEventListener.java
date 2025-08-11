@@ -12,11 +12,14 @@ public class AppointmentEventListener {
 
     private final MailService mailService;
 
-    @KafkaListener(topics = "appointments.created", groupId = "${KAFKA_GROUP_ID}",
-            containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(
+            topics = "appointments.created",
+            groupId = "${KAFKA_GROUP_ID}",
+            containerFactory = "kafkaListenerContainerFactory"
+    )
     public void handleAppointmentCreated(AppointmentCreatedEvent event) {
         if (event.userEmail() == null || event.userEmail().isBlank()) {
-            System.out.println("No email provided for user " + event.userId());
+            System.out.println("⚠ No email provided for user " + event.userId());
             return;
         }
 
@@ -30,7 +33,6 @@ public class AppointmentEventListener {
         );
 
         mailService.sendMail(event.userEmail(), subject, body);
-        System.out.println("Email sent to: " + event.userEmail());
+        System.out.println("✅ Email sent to: " + event.userEmail());
     }
 }
-
