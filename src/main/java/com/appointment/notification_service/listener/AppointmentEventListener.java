@@ -27,12 +27,12 @@ public class AppointmentEventListener {
         String body = String.format(
                 "Hello %s,\n\nYour appointment with Doctor %s is confirmed for %s.\nReason: %s\n\nRegards,\nClinic Team",
                 event.usersFullName(),
-                event.doctorId(),
+                event.doctorFullName(),
                 event.appointmentTime(),
                 event.reason()
         );
 
         mailService.sendMail(event.userEmail(), subject, body);
-        System.out.println("✅ Email sent to: " + event.userEmail());
+//        System.out.println("✅ Email sent to: " + event.userEmail());
     }
 }
