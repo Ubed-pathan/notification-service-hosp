@@ -33,7 +33,7 @@
 //
 //                Regards,
 //                YourApp Team
-//                """, event.usersFullName(), event.doctorId(), event.appointmentTime(), event.reason(), event.appointmentId()));
+//                """, event.usersFullName(), event.doctorId(), event.appointmentStartTime(), event.reason(), event.appointmentId()));
 //
 //        mailSender.send(message);
 //        System.out.println("✅ Email sent to " + event.userEmail());

@@ -28,7 +28,7 @@ public class AppointmentEventListener {
                 "Hello %s,\n\nYour appointment with Doctor %s is confirmed for %s.\nReason: %s\n\nRegards,\nClinic Team",
                 event.usersFullName(),
                 event.doctorFullName(),
-                event.appointmentTime(),
+                event.appointmentStartTime(),
                 event.reason()
         );
 
@@ -52,7 +52,7 @@ public class AppointmentEventListener {
                 "Hello %s,\n\nYour appointment with Doctor %s scheduled for %s has been cancelled.\nReason: %s\n\nRegards,\nClinic Team",
                 event.usersFullName(),
                 event.doctorFullName(),
-                event.appointmentTime(),
+                event.appointmentStartTime(),
                 event.reason()
         );
 
@@ -74,10 +74,10 @@ public class AppointmentEventListener {
 
         String subject = "Appointment Completed - " + event.appointmentId();
         String body = String.format(
-                "Hello %s,\n\nYour appointment with Doctor %s on %s has been marked as completed.\nReason: %s\n\nThank you for visiting.\nClinic Team",
+                "Hello %s,\n\nWe hope you had a positive experience during your appointment with Dr. %s on %s.\n\nYour appointment has been marked as completed.\nReason: %s\n\nWe truly appreciate your trust in our clinic.\n\nTo help us improve and assist other patients, please consider leaving a review for your doctor in the appointment tab on the Hospilink application.\n\nThank you for choosing us!\nBest regards,\nClinic Team",
                 event.usersFullName(),
                 event.doctorFullName(),
-                event.appointmentTime(),
+                event.appointmentStartTime(),
                 event.reason()
         );
 
